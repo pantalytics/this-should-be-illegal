@@ -1,25 +1,37 @@
 # Contributing
 
-Lawyers reviewing templates is the most valuable contribution. Read
-[DECISIONS.md](DECISIONS.md) first.
+Read [DECISIONS.md](DECISIONS.md) first: purpose and principles.
 
-## Copyright rules
+## Ways to help
 
-Templates are CC BY 4.0. Only contribute text you may license that way.
+| You are | Most useful |
+| ------- | ----------- |
+| Lawyer or notary | Review a template and mark it `reviewed` |
+| Entrepreneur | Report what was unclear or missing, via an issue |
+| Anyone with an AI assistant | Let `draft-document` write a missing template, check it, open a PR |
+| Developer | Improve a skill or the checks |
 
-1. **Write from the statute.** Legislation and court rulings are not protected by copyright
-   (NL: art. 11 Auteurswet). Law-firm and commercial models are.
-2. **Do not copy, translate or closely paraphrase** clauses from such models or paid template
-   sites.
+Small pull requests are best: one template or one fix per PR.
+
+## The license rule
+
+Everything you contribute is published as **CC BY 4.0** (content) or **MIT** (code and
+skills). Nothing else.
+
+1. **Write from the statute.** Legislation and court rulings are public domain
+   (NL: art. 11 Auteurswet). Law-firm models, commercial templates and paid template sites
+   are not: do not copy, translate or closely paraphrase them.
+2. **No material under another license**, including CC BY-SA, GPL or "free for personal use".
+   Link to it instead.
 3. **No client documents**, not even anonymised.
 4. **AI-generated text** is fine if you reviewed it and it meets rules 1 to 3.
-5. By opening a pull request you confirm you may license your contribution under CC BY 4.0
-   (content) or MIT (code). Sign off your commits (`git commit -s`).
+5. By opening a pull request you confirm you may license your contribution this way. Sign
+   off your commits (`git commit -s`).
 
 ## Adding a template
 
-Put it in `plugins/legal-<country>/templates/<entity>/<name>.md`, in the local language, and
-copy the frontmatter from an existing template.
+Markdown only. Put it in `plugins/legal-<country>/templates/<entity>/<name>.md`, in the local
+language, and copy the frontmatter from an existing template.
 
 - `{{snake_case}}` placeholders, each declared in `fields` as a label or as
   `{label, suggestie}`.

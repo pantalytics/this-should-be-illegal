@@ -8,6 +8,7 @@ Runs offline, no dependencies beyond PyYAML. Fails CI when:
 - `last_checked` is older than MAX_AGE_DAYS
 - a skill's SKILL.md misses name/description or the name does not match its folder
 - a marketplace plugin source or plugin.json is missing
+- a file is not Markdown/plain text, or carries a license other than MIT or CC BY 4.0
 """
 
 from __future__ import annotations
@@ -15,6 +16,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -137,7 +139,38 @@ def check_marketplace() -> None:
             json.loads(mcp.read_text(encoding="utf-8"))
 
 
+ALLOWED_LICENSES = {"MIT", "CC-BY-4.0"}
+ALLOWED_SUFFIXES = {".md", ".json", ".yml", ".yaml", ".toml", ".py", ".txt", ""}
+SPDX = re.compile(r"SPDX-License-Identifier\s*=?\s*:?\s*\"?([A-Za-z0-9.+-]+)")
+
+
+def check_repo_files() -> None:
+    """Markdown-first and only MIT / CC BY 4.0, see DECISIONS.md principles 2 and 3."""
+    licenses = {p.stem for p in (ROOT / "LICENSES").iterdir()}
+    for name in sorted(licenses - ALLOWED_LICENSES):
+        error(ROOT / "LICENSES", f"license `{name}` not allowed; only {sorted(ALLOWED_LICENSES)}")
+    tracked = subprocess.run(
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
+        cwd=ROOT, capture_output=True, text=True, check=True,
+    ).stdout.split()
+    for path in sorted(ROOT / f for f in tracked):
+        rel = path.relative_to(ROOT)
+        if not path.is_file() or rel.parts[0] == "LICENSES":
+            continue
+        if path.suffix.lower() not in ALLOWED_SUFFIXES:
+            error(path, f"file type `{path.suffix}` not allowed; Markdown and plain text only")
+            continue
+        if path.parent.name != "templates" and "templates" in rel.parts and path.suffix != ".md":
+            error(path, "templates must be Markdown")
+        if path == Path(__file__).resolve():
+            continue
+        for found in SPDX.findall(path.read_text(encoding="utf-8", errors="ignore")):
+            if found not in ALLOWED_LICENSES:
+                error(path, f"license `{found}` not allowed; only {sorted(ALLOWED_LICENSES)}")
+
+
 def main() -> int:
+    check_repo_files()
     for path in template_files():
         check_template(path)
     for path in sorted(ROOT.glob("plugins/*/skills/*/SKILL.md")):
