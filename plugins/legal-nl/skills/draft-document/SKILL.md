@@ -1,6 +1,6 @@
 ---
 name: draft-document
-description: Stel een Nederlands juridisch document op voor een ondernemer. Gebruikt een template uit deze plugin (aandeelhoudersovereenkomst, managementovereenkomst, aandeelhoudersbesluit buiten vergadering) of schrijft er zelf een vanuit de wet als er geen template is. Loopt de keuzes door, toetst de wetsartikelen tegen de actuele tekst en levert Markdown plus open punten.
+description: Stel een Nederlands juridisch document op voor een ondernemer. Gebruikt een template uit deze plugin (aandeelhoudersovereenkomst, managementovereenkomst, aandeelhoudersbesluit, rekening-courant, geldlening) of schrijft er zelf een vanuit de wet als er geen template is. Loopt de keuzes door, toetst de wetsartikelen tegen de actuele tekst en levert Markdown plus open punten.
 ---
 
 # Document opstellen (NL)

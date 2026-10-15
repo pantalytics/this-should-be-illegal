@@ -13,6 +13,8 @@ Nederlandse juridische templates en skills voor ondernemers met een BV.
 | [Aandeelhoudersovereenkomst](templates/bv/aandeelhoudersovereenkomst.md) | Afspraken tussen oprichters: bestuur, overdracht, vesting, leaver |
 | [Managementovereenkomst](templates/bv/managementovereenkomst.md) | Bestuurder werkt via eigen holding voor de werkmaatschappij |
 | [Aandeelhoudersbesluit buiten vergadering](templates/bv/aandeelhoudersbesluit-buiten-vergadering.md) | Elk AVA-besluit zonder vergadering (art. 2:238 BW) |
+| [Rekening-courantovereenkomst](templates/bv/rekening-courantovereenkomst.md) | Lopend onderling geldverkeer tussen BV en DGA of holding |
+| [Geldleningsovereenkomst](templates/bv/geldleningsovereenkomst.md) | Zakelijke lening van een vast bedrag aan een BV |
 
 Alle templates zijn `draft`: nog niet beoordeeld door een advocaat.
 
