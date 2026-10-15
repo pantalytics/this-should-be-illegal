@@ -1,9 +1,0 @@
-max_retries = 3
-timeout = 30
-accept = ["200..=299", "403", "429"]
-exclude = [
-  # Download page behind a form; returns 403 to bots.
-  "^https://capitalwaters\\.nl/",
-  # Times out from GitHub runners, loads fine in a browser.
-  "^https://legaldocs\\.grantthornton\\.nl/",
-]

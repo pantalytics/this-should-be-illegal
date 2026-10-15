@@ -1,19 +1,12 @@
 {
   "mcpServers": {
-    "dutch-law": {
-      "type": "http",
-      "url": "https://gateway.ansvar.eu/mcp"
-    },
     "rechtspraak": {
       "command": "npx",
       "args": ["-y", "rechtspraak-mcp"]
     },
-    "kvk": {
+    "eurlex": {
       "command": "npx",
-      "args": ["-y", "kvk-mcp"],
-      "env": {
-        "KVK_API_KEY": "${KVK_API_KEY}"
-      }
+      "args": ["-y", "eurlex-mcp-server"]
     }
   }
 }

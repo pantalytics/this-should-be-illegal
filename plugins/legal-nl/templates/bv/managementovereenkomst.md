@@ -200,6 +200,17 @@ Aldus overeengekomen en ondertekend te {{plaats}} op {{datum}}.
 | ---------------------- | -------------------------------- |
 |                        |                                  |
 
+## Wettelijke grondslag
+
+Actuele tekst op wetten.overheid.nl:
+
+- [art. 2:239 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling5_Artikel239)
+- [art. 2:240 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling5_Artikel240)
+- [art. 2:245 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling5_Artikel245)
+- [art. 2:247 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling5_Artikel247)
+- [art. 7:400 BW](https://wetten.overheid.nl/BWBR0005290/#Boek7_Titeldeel7_Afdeling1_Artikel400)
+- [art. 7:408 BW](https://wetten.overheid.nl/BWBR0005290/#Boek7_Titeldeel7_Afdeling1_Artikel408)
+
 ---
 
 ## Toelichting voor de gebruiker (verwijderen voor ondertekening)

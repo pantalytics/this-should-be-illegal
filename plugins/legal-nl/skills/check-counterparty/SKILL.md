@@ -1,27 +1,27 @@
 ---
 name: check-counterparty
-description: Controleer een Nederlandse zakelijke tegenpartij in het KVK-handelsregister voordat je tekent of factureert. Gebruik dit bij vragen als "bestaat dit bedrijf", "mag deze persoon tekenen", "klopt dit KVK-nummer" of als onderdeel van een contractreview.
+description: Controleer een zakelijke tegenpartij in de EU voordat je tekent of factureert, via het gratis btw-register VIES en de openbare KVK-zoekpagina. Gebruik dit bij vragen als "bestaat dit bedrijf", "klopt dit btw-nummer", "mag deze persoon tekenen" of als onderdeel van een contractreview.
 ---
 
-# Tegenpartij controleren (NL)
+# Tegenpartij controleren
 
-Gebruik de `kvk` MCP-server. Zonder die server: zeg dat de check niet kan draaien en verwijs
-naar <https://www.kvk.nl/zoeken/>. Raad niets.
+Alleen open bronnen, zonder account of key.
 
 ## Werkwijze
 
-1. Zoek op KVK-nummer, of anders op naam en plaats. Meerdere treffers: toon ze en laat kiezen.
-2. Haal het basisprofiel op en rapporteer:
-   - statutaire naam, handelsnamen, rechtsvorm, KVK-nummer, vestigingsadres;
-   - datum inschrijving, en of de inschrijving actief is;
-   - recente mutaties (naamswijziging, adreswijziging, opheffing) als de server die levert.
-3. **Bevoegdheid.** Het basisprofiel van de KVK API bevat geen functionarissen. Zeg dat
-   tekenbevoegdheid alleen blijkt uit een uittreksel (betaald, via kvk.nl) en welke vraag de
-   gebruiker aan de tegenpartij kan stellen: "Wie is bestuurder en is die alleen/zelfstandig
-   bevoegd?"
+1. **Btw-nummer (VIES).** Haal op:
+   `https://ec.europa.eu/taxation_customs/vies/rest-api/ms/<LAND>/vat/<NUMMER>`,
+   bijvoorbeeld `.../ms/NL/vat/NL123456789B01`. Rapporteer `isValid`, `name` en `address`.
+   Werkt voor alle EU-landen. Geen btw-nummer bekend? Vraag erom; het staat op elke factuur.
+2. **Handelsregister (NL).** Zoek op <https://www.kvk.nl/zoeken/?source=all&q=NAAM> en noem
+   KVK-nummer, rechtsvorm, plaats en of de inschrijving actief is. Lukt het ophalen niet,
+   geef de gebruiker de link en ga verder met wat je hebt.
+3. **Bevoegdheid.** Wie mag tekenen staat alleen in een (betaald) KVK-uittreksel. Raad het
+   niet. Geef de vraag mee die de gebruiker aan de tegenpartij stelt: "Wie is bestuurder, en
+   is die alleen of zelfstandig bevoegd? Stuur een recent uittreksel mee."
 4. **Rode vlaggen**, elk met reden:
-   - naam in het contract wijkt af van statutaire naam;
-   - inschrijving jonger dan drie maanden bij een grote opdracht;
-   - adres is een virtueel kantoor of afwijkt van het contract;
+   - naam in het contract wijkt af van de naam in VIES of KVK;
+   - btw-nummer ongeldig;
+   - adres wijkt af van het contract;
    - rechtsvorm is een eenmanszaak of vof terwijl het contract een BV noemt.
-5. Eindig met: **OK**, **Navragen** of **Niet tekenen**, en waarom in één zin.
+5. Eindig met **OK**, **Navragen** of **Niet tekenen**, en waarom in één zin.
