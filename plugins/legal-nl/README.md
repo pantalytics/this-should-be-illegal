@@ -6,6 +6,10 @@ Nederlandse juridische templates en skills voor ondernemers met een BV.
 /plugin install legal-nl --marketplace pantalytics/this-should-be-illegal
 ```
 
+In de Claude-app: **Customize** > **Add marketplace** > **Add from a repository** >
+`pantalytics/this-should-be-illegal`, en installeer daarna **legal-nl**. Zie de
+[README](../../README.md#add-it-to-claude) voor wat waar werkt.
+
 ## Templates
 
 | Template | Gebruik |

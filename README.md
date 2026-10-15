@@ -41,10 +41,29 @@ the recommended one marked, links to the law, and a checklist. Need Word? Ask yo
 | `check-counterparty` | Checks a company via VIES and the public KVK search |
 | `lookup-law` | Fetches the current text of an NL or EU article |
 
+## Add it to Claude
+
+**Claude app (claude.ai, Desktop, Cowork)**
+
+1. Open **Customize** and choose **Add marketplace**.
+2. Choose **Add from a repository** and enter `pantalytics/this-should-be-illegal`.
+3. Install the plugin **legal-nl** from that marketplace.
+4. Try: *"Stel een rekening-courantovereenkomst op tussen mijn holding en mijn BV."*
+
+**Claude Code**
+
 ```bash
 /plugin marketplace add pantalytics/this-should-be-illegal
 /plugin install legal-nl@this-should-be-illegal
 ```
+
+**What works where.** Templates and skills work everywhere. The case-law and EU-law servers
+run locally through `npx`, so they need Claude Code or Cowork (Claude Desktop) and
+[Node.js](https://nodejs.org) 20 or later; on claude.ai in the browser the skills say which
+checks could not run. Dutch law text is fetched from GitHub, so Claude needs web access.
+
+**Without a plugin.** Every template is plain Markdown: copy one into any AI chat and ask it
+to fill it in with you.
 
 ## Law sources
 
