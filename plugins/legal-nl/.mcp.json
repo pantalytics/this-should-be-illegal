@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "dutch-law": {
-      "command": "npx",
-      "args": ["-y", "@ansvar/dutch-law-mcp"]
+      "type": "http",
+      "url": "https://gateway.ansvar.eu/mcp"
     },
     "rechtspraak": {
       "command": "npx",

@@ -26,6 +26,12 @@ Nederlandse juridische templates en skills voor ondernemers met een BV.
 
 ## MCP-servers
 
-De plugin start drie servers via `npx` (Node.js 20+ nodig): `dutch-law`, `rechtspraak` en
-`kvk`. Voor `kvk` zet je `KVK_API_KEY` in je omgeving. Zonder key werken de andere twee
-gewoon en meldt de skill dat de KVK-check niet kon draaien.
+| Server | Hoe | Nodig |
+| ------ | --- | ----- |
+| `dutch-law` | Gehoste gateway van Ansvar (HTTP) | Gratis account, OAuth bij eerste gebruik |
+| `rechtspraak` | `npx rechtspraak-mcp` | Node.js 20+ |
+| `kvk` | `npx kvk-mcp` | Node.js 20+ en `KVK_API_KEY` in je omgeving |
+
+Ontbreekt een server of key, dan werken de skills door en melden ze welke check niet kon
+draaien. De lokale variant van dutch-law-mcp (`npx @ansvar/dutch-law-mcp`) faalde in oktober
+2026 op het downloaden van de database; daarom de gateway.

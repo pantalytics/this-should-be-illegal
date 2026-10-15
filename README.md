@@ -43,7 +43,8 @@ Every template:
 Then ask: *"Stel een managementovereenkomst op tussen mijn holding en mijn BV."*
 
 The KVK check needs a key from [developers.kvk.nl](https://developers.kvk.nl). Set
-`KVK_API_KEY` in your environment. The other servers need no key.
+`KVK_API_KEY` in your environment. The law server asks for a free Ansvar login on first use.
+Case law needs nothing.
 
 **Without AI:** open a template, replace the `{{placeholders}}`, work through the checklist at
 the bottom, and have a lawyer look at it.
@@ -52,7 +53,7 @@ the bottom, and have a lawyer look at it.
 
 | Server | Covers | Key | License |
 | ------ | ------ | --- | ------- |
-| [dutch-law-mcp](https://github.com/ansvar-systems/dutch-law-mcp) | NL legislation, wetten.overheid.nl | none | Apache-2.0 |
+| [dutch-law-mcp](https://github.com/ansvar-systems/dutch-law-mcp) | NL legislation, wetten.overheid.nl | free Ansvar account (OAuth) | Apache-2.0 |
 | [rechtspraak-mcp](https://github.com/prudai/rechtspraak-mcp) | NL case law by ECLI, LiDO citations | none | MIT |
 | [kvk-mcp](https://github.com/BartWaardenburg/kvk-mcp) | NL trade register (KVK) | KVK API key | MIT |
 
