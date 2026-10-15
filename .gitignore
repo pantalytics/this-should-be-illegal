@@ -5,3 +5,4 @@ __pycache__/
 node_modules/
 law-report.txt
 .env
+dist/

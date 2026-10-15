@@ -25,6 +25,8 @@ MAX_AGE_DAYS = 365
 REQUIRED = ["title", "jurisdiction", "language", "version", "status", "last_checked", "legal_basis", "fields"]
 STATUSES = {"draft", "reviewed"}
 PLACEHOLDER = re.compile(r"\{\{\s*([a-z0-9_]+)\s*\}\}")
+OPTION_BLOCK = re.compile(r"<!-- optie ([a-z0-9_]+)=([a-z]) -->\n(.*?)\n<!-- /optie -->", re.S)
+OPTION_MARKER = re.compile(r"^<!-- /?optie\b", re.M)
 
 errors: list[str] = []
 
@@ -71,12 +73,40 @@ def check_template(path: Path) -> None:
         age = (dt.date.today() - dt.date.fromisoformat(str(checked))).days
         if age > MAX_AGE_DAYS:
             error(path, f"last_checked is {age} days old (max {MAX_AGE_DAYS}); re-check against current law")
-    declared = set((meta.get("fields") or {}).keys())
-    used = set(PLACEHOLDER.findall(body(path)))
-    for name in sorted(used - declared):
+    fields = meta.get("fields") or {}
+    for name, spec in fields.items():
+        if isinstance(spec, dict) and not spec.get("label"):
+            error(path, f"field `{name}` needs a `label`")
+        elif not isinstance(spec, (str, dict)):
+            error(path, f"field `{name}` must be a label or a mapping with label/suggestie")
+    text = body(path)
+    used = set(PLACEHOLDER.findall(text))
+    for name in sorted(used - set(fields)):
         error(path, f"placeholder `{{{{{name}}}}}` used but not declared in `fields`")
-    for name in sorted(declared - used):
+    for name in sorted(set(fields) - used):
         error(path, f"field `{name}` declared but never used")
+    check_options(path, meta.get("options") or {}, text)
+
+
+def check_options(path: Path, options: dict, text: str) -> None:
+    """Every declared choice has exactly one block, and every block is declared."""
+    blocks = OPTION_BLOCK.findall(text)
+    if len(OPTION_MARKER.findall(text)) != 2 * len(blocks):
+        error(path, "unbalanced or malformed `<!-- optie x=y -->` / `<!-- /optie -->` markers")
+    found: dict[str, list[str]] = {}
+    for opt, choice, _ in blocks:
+        found.setdefault(opt, []).append(choice)
+    for opt, spec in options.items():
+        choices = set((spec or {}).get("keuzes") or {})
+        if not spec.get("vraag"):
+            error(path, f"option `{opt}` needs a `vraag`")
+        if spec.get("default") not in choices:
+            error(path, f"option `{opt}`: default must be one of {sorted(choices)}")
+        got = found.get(opt, [])
+        if sorted(got) != sorted(choices):
+            error(path, f"option `{opt}`: blocks {sorted(got)} do not match keuzes {sorted(choices)}")
+    for opt in sorted(set(found) - set(options)):
+        error(path, f"option block `{opt}` not declared in `options`")
 
 
 def check_skill(path: Path) -> None:

@@ -13,4 +13,5 @@ config:
   MD036: false
 ignores:
   - "LICENSES/**"
+  - "dist/**"
   - "node_modules/**"

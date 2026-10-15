@@ -1,14 +1,17 @@
 # Sources
 
-External material we used as reference or recommend. **Nothing here is redistributed in this
-repo.** Each source keeps its own license and terms. Do not copy text from these into
-templates (see [CONTRIBUTING.md](CONTRIBUTING.md)).
+Background references for contributors. **Users do not need any of these:** our templates
+are self-contained. Nothing here is redistributed in this repo, each source keeps its own
+license, and no text from them may be copied into templates (see
+[CONTRIBUTING.md](CONTRIBUTING.md)).
 
-## Netherlands: model documents
+## Netherlands: model documents (reference only)
+
+Useful to check which topics a market-standard document covers. We write our own clauses.
 
 | Source | What | Terms |
 | ------ | ---- | ----- |
-| [Capital Waters, investment documents](https://capitalwaters.nl/investment-documents/) | Shareholders agreement (ordinary shares) with explanatory notes, May 2024. Best public NL starting point when investors come in. | Download via form. "Comply or explain": deviations must be visible, CW logo must stay. Use their document directly, do not merge it into ours. |
+| [Capital Waters, investment documents](https://capitalwaters.nl/investment-documents/) | Shareholders agreement (ordinary shares) with explanatory notes, May 2024 | Behind a download form. Comply-or-explain terms, logo must stay. |
 | [Captain Legal, aandeelhoudersbesluit](https://www.captain.legal/nl/bedrijf-oprichten/aandeelhoudersbesluit-bv-opstellen-word-en-pdf/) | Shareholder resolution outside a meeting (art. 2:238 BW) | Commercial, copyrighted |
 | [Captain Legal, aandeelhoudersovereenkomst](https://www.captain.legal/nl/bedrijf-oprichten/aandeelhoudersovereenkomst-bv-opstellen-word-en-pdf/) | SHA under Book 2 BW, holding structure | Commercial, copyrighted |
 | [Grant Thornton, managementovereenkomst](https://legaldocs.grantthornton.nl/ondernemen/managementovereenkomst/example) | Management agreement, conflict of interest via the general meeting | Commercial, copyrighted |
@@ -32,7 +35,7 @@ to its own code or structure.
 | Source | What | License |
 | ------ | ---- | ------- |
 | [anthropics/knowledge-work-plugins, legal](https://github.com/anthropics/knowledge-work-plugins/tree/main/legal) | Contract review, NDA triage, compliance skills. Not jurisdiction-specific. | Apache-2.0 |
-| [willchen96/mike](https://github.com/willchen96/mike) | Open-source legal AI platform, alternative to Harvey | AGPL-3.0 (network copyleft: do not mix into MIT code) |
+| [willchen96/mike](https://github.com/willchen96/mike) | Open-source legal AI platform, alternative to Harvey. Imports our `.docx` files as templates and our MCP servers as connectors. | AGPL-3.0 (network copyleft: we supply content, we do not copy its code) |
 
 ## Not useful for NL/EU
 

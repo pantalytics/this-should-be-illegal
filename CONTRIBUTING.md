@@ -25,11 +25,26 @@ license that way.
    jurisdiction.
 2. Copy the frontmatter from an existing template. Required: `title`, `jurisdiction`,
    `language`, `version`, `status`, `last_checked`, `legal_basis`, `fields`.
-3. Use `{{snake_case}}` placeholders and declare each one in `fields`.
-4. Cite every article you rely on in `legal_basis` (format `BW 2:238`). The weekly law check
+3. Use `{{snake_case}}` placeholders and declare each one in `fields`, as a label or as
+   `{label, suggestie}` with a sensible default value.
+4. Where users commonly choose between approaches, write out each option and declare it in
+   `options` with a `vraag`, the `keuzes` and a recommended `default`:
+
+   ```markdown
+   > **Kies één:** Wie beslist bij een geschil?
+
+   <!-- optie forum=a -->
+   **Optie A: Rechtbank** *(aanbevolen: goedkoper)*
+
+   Clause text…
+   <!-- /optie -->
+   ```
+
+   Keep it to the options founders actually pick between. Two or three, not five.
+5. Cite every article you rely on in `legal_basis` (format `BW 2:238`). The weekly law check
    uses this list.
-5. End with a "Toelichting voor de gebruiker" section: when to use it, and a checklist.
-6. New templates start as `status: draft`.
+6. End with a "Toelichting voor de gebruiker" section: when to use it, and a checklist.
+7. New templates start as `status: draft`.
 
 ## Reviewing a template (lawyers)
 
@@ -49,5 +64,6 @@ or add an equivalent lookup for that country's official law portal.
 pip install pyyaml
 python scripts/validate.py
 python scripts/check_law_changes.py
+python scripts/build.py   # needs pandoc, writes dist/
 npx markdownlint-cli2 "**/*.md"
 ```
