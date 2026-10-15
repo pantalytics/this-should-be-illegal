@@ -131,6 +131,17 @@ Getekend te {{plaats}} op {{datum}}.
 |               |              |
 |               |              |
 
+## Wettelijke grondslag
+
+Actuele tekst op wetten.overheid.nl:
+
+- [art. 2:210 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling3_Artikel210)
+- [art. 2:216 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling3_Artikel216)
+- [art. 2:238 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling4_Artikel238)
+- [art. 2:239 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling5_Artikel239)
+- [art. 2:244 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling5_Artikel244)
+- [art. 2:245 BW](https://wetten.overheid.nl/BWBR0003045/#Boek2_Titeldeel5_Afdeling5_Artikel245)
+
 ---
 
 ## Toelichting voor de gebruiker (verwijderen voor ondertekening)

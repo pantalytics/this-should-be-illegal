@@ -3,6 +3,4 @@ __pycache__/
 *.pyc
 .venv/
 node_modules/
-law-report.txt
 .env
-dist/
