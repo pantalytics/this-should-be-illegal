@@ -1,0 +1,26 @@
+name: Template request
+description: Ask for a new template or country
+labels: [template-request]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      placeholder: NL
+    validations:
+      required: true
+  - type: input
+    id: document
+    attributes:
+      label: Document
+      placeholder: Verwerkersovereenkomst (AVG)
+    validations:
+      required: true
+  - type: textarea
+    id: situation
+    attributes:
+      label: When would you use it?
+  - type: textarea
+    id: legal_basis
+    attributes:
+      label: Relevant articles, if you know them

@@ -1,0 +1,15 @@
+{
+  "name": "this-should-be-illegal",
+  "owner": {
+    "name": "Pantalytics",
+    "url": "https://pantalytics.com"
+  },
+  "description": "Open-source legal templates and skills for European entrepreneurs, one plugin per country, with live checks against the law.",
+  "plugins": [
+    {
+      "name": "legal-nl",
+      "source": "./plugins/legal-nl",
+      "description": "Nederland: BV-templates, contractreview en tegenpartijcheck met live wet, rechtspraak en KVK."
+    }
+  ]
+}

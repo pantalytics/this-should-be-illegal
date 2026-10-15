@@ -1,0 +1,43 @@
+name: Weekly checks
+
+# Law changes and dead links happen without a commit, so check on a schedule.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  law:
+    name: Cited articles unchanged
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml==6.0.2
+      - id: check
+        run: python scripts/check_law_changes.py | tee law-report.txt
+      - name: Open issue when a cited article changed
+        if: failure() && steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Law changed: templates need a re-check ($(date +%F))" \
+            --label law-change \
+            --body "$(printf 'The weekly check found cited articles that changed after the template was last checked.\n\n```\n%s\n```' "$(grep -v '^ok' law-report.txt)")"
+
+  links:
+    name: Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config lychee.toml "**/*.md"
+          fail: true

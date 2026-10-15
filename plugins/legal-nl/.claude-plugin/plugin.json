@@ -1,0 +1,11 @@
+{
+  "name": "legal-nl",
+  "version": "0.1.0",
+  "description": "Nederlandse juridische templates en skills voor ondernemers: BV-documenten opstellen en reviewen met live checks tegen wetten.overheid.nl, Rechtspraak en het KVK-handelsregister.",
+  "author": {
+    "name": "Pantalytics",
+    "url": "https://pantalytics.com"
+  },
+  "homepage": "https://github.com/pantalytics/this-should-be-illegal",
+  "license": "MIT AND CC-BY-4.0"
+}

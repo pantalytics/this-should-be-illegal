@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "dutch-law": {
+      "command": "npx",
+      "args": ["-y", "@ansvar/dutch-law-mcp"]
+    },
+    "rechtspraak": {
+      "command": "npx",
+      "args": ["-y", "rechtspraak-mcp"]
+    },
+    "kvk": {
+      "command": "npx",
+      "args": ["-y", "kvk-mcp"],
+      "env": {
+        "KVK_API_KEY": "${KVK_API_KEY}"
+      }
+    }
+  }
+}
