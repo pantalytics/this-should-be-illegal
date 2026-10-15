@@ -1,5 +1,11 @@
 # this should be illegal
 
+> [!CAUTION]
+> **I am not a lawyer, and large parts of this repo were written with AI.**
+> Nothing here is legal advice. Every template is a draft until a lawyer has reviewed it,
+> and none have been reviewed yet. Have a lawyer or notary check any document before you
+> sign it. See [DISCLAIMER.md](DISCLAIMER.md).
+
 Free, good legal documents for every entrepreneur in Europe, with AI skills that check them
 against the current law. Netherlands first, then country by country.
 
@@ -8,12 +14,10 @@ against the current law. Netherlands first, then country by country.
 - **Open source only.** Content CC BY 4.0, code MIT, nothing else. CI enforces it.
 - **No gates.** Only open sources: no accounts, API keys or download forms.
 - **Written from the statute,** never copied from commercial models.
+- **Kept current.** A weekly check flags templates whose cited articles changed.
 
 Purpose and principles: [DECISIONS.md](DECISIONS.md). How to help:
 [CONTRIBUTING.md](CONTRIBUTING.md).
-
-> **Not legal advice.** Templates are drafts until a lawyer has reviewed them. See
-> [DISCLAIMER.md](DISCLAIMER.md).
 
 ## Templates
 
