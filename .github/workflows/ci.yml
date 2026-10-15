@@ -19,6 +19,13 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml==6.0.2
       - run: python scripts/validate.py
+      - run: sudo apt-get update && sudo apt-get install -y pandoc
+      - name: Build Word and Markdown files
+        run: python scripts/build.py
+      - uses: actions/upload-artifact@v7
+        with:
+          name: templates
+          path: dist/
 
   markdown:
     name: Markdown lint

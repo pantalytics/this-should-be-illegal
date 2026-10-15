@@ -43,19 +43,30 @@ def fetch(bwb_id: str) -> str:
     return _cache[bwb_id]
 
 
-def article_date(ref: str) -> dt.date:
+def lookup(ref: str) -> tuple[str, dt.date]:
+    """Return (anchor id, in-force date) of the current version of an article."""
     m = REF.match(ref)
     if not m:
         raise ValueError(f"unsupported legal_basis format: {ref!r}")
     bwb_id = BWB_IDS[m["code"]]
-    page = fetch(bwb_id)
     hit = re.search(
-        rf'_Artikel{m["article"]}" data-bwb-id="{bwb_id}" data-iwt-datum="(\d{{4}}-\d{{2}}-\d{{2}})"',
-        page,
+        rf'id="([A-Za-z0-9_]+_Artikel{m["article"]})" data-bwb-id="{bwb_id}" '
+        rf'data-iwt-datum="(\d{{4}}-\d{{2}}-\d{{2}})"',
+        fetch(bwb_id),
     )
     if not hit:
         raise LookupError(f"{ref} not found on wetten.overheid.nl ({bwb_id})")
-    return dt.date.fromisoformat(hit[1])
+    return hit[1], dt.date.fromisoformat(hit[2])
+
+
+def article_date(ref: str) -> dt.date:
+    return lookup(ref)[1]
+
+
+def article_url(ref: str) -> str:
+    """Link to the always-current version of the article."""
+    anchor, _ = lookup(ref)
+    return f"https://wetten.overheid.nl/{BWB_IDS[REF.match(ref)['code']]}/#{anchor}"
 
 
 def main(paths: list[str]) -> int:

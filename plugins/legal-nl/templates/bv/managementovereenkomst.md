@@ -3,7 +3,7 @@ title: Managementovereenkomst (bestuurder via holding)
 jurisdiction: NL
 entity: bv
 language: nl
-version: 0.1.0
+version: 0.2.0
 status: draft
 reviewed_by: null
 last_checked: 2026-10-15
@@ -17,18 +17,50 @@ legal_basis:
 fields:
   vennootschap_naam: Statutaire naam van de werkmaatschappij (opdrachtgever)
   vennootschap_kvk: KVK-nummer van de werkmaatschappij
-  vennootschap_vertegenwoordiger: Wie tekent namens de werkmaatschappij (zie toelichting)
+  vennootschap_vertegenwoordiger:
+    label: Wie tekent namens de werkmaatschappij
+    suggestie: een andere bestuurder, of een persoon die de AVA daartoe aanwijst
   holding_naam: Statutaire naam van de management-BV (opdrachtnemer)
   holding_kvk: KVK-nummer van de management-BV
   bestuurder_naam: Natuurlijk persoon die de werkzaamheden feitelijk uitvoert
   ingangsdatum: Ingangsdatum van de overeenkomst
-  werkzaamheden: Omschrijving van de taken naast de statutaire bestuurstaak
-  uren_per_week: Indicatieve tijdsbesteding per week
-  vergoeding_per_maand: Vaste vergoeding per maand, exclusief btw
-  opzegtermijn_maanden: Opzegtermijn in maanden
   ava_besluit_datum: Datum van het AVA-besluit dat deze overeenkomst goedkeurt
+  werkzaamheden:
+    label: Taken naast de statutaire bestuurstaak
+    suggestie: "algemene leiding, strategie, financiën, commercie en personeelsbeleid"
+  uren_per_week:
+    label: Indicatieve tijdsbesteding per week
+    suggestie: "40"
+  vergoeding_per_maand:
+    label: Vaste vergoeding per maand, exclusief btw
+    suggestie: "minimaal het gebruikelijk loon van de DGA plus werkgeverslasten, gedeeld door 12"
+  uurtarief:
+    label: Uurtarief, exclusief btw
+    suggestie: "125"
+  opzegtermijn_maanden:
+    label: Opzegtermijn in maanden
+    suggestie: "3"
   plaats: Plaats van ondertekening
   datum: Datum van ondertekening
+options:
+  vergoeding:
+    vraag: Hoe wordt de Managementvennootschap betaald?
+    default: a
+    keuzes:
+      a: Vaste vergoeding per maand
+      b: Uurtarief op basis van urenregistratie
+  einde_bestuur:
+    vraag: Wat gebeurt er met de overeenkomst als de Managementvennootschap geen bestuurder meer is?
+    default: a
+    keuzes:
+      a: Eindigt van rechtswege
+      b: Loopt door tot einde opzegtermijn
+  ziekte:
+    vraag: Wat gebeurt er met de vergoeding bij langdurige arbeidsongeschiktheid?
+    default: a
+    keuzes:
+      a: Opschorten na 3 maanden
+      b: Doorbetalen tot 12 maanden
 ---
 
 # Managementovereenkomst
@@ -64,10 +96,26 @@ verplichtingen als bestuurder blijven onverminderd van toepassing.
 
 ## 2. Vergoeding
 
-2.1 De Vennootschap betaalt een vaste vergoeding van EUR {{vergoeding_per_maand}} per maand,
-te vermeerderen met btw, op basis van een maandelijkse factuur.
+> **Kies één:** Hoe wordt de Managementvennootschap betaald?
 
-2.2 Redelijke, vooraf goedgekeurde onkosten worden op declaratiebasis vergoed.
+<!-- optie vergoeding=a -->
+**Optie A: Vaste vergoeding per maand** *(aanbevolen: voorspelbaar voor beide partijen)*
+
+2.1 De Vennootschap betaalt een vaste vergoeding van EUR {{vergoeding_per_maand}} per maand,
+te vermeerderen met btw, op basis van een maandelijkse factuur. De vergoeding wordt jaarlijks
+per 1 januari geïndexeerd met de CPI (alle huishoudens) van het CBS.
+<!-- /optie -->
+
+<!-- optie vergoeding=b -->
+**Optie B: Uurtarief** *(past bij parttime of wisselende inzet)*
+
+2.1 De Vennootschap betaalt een vergoeding van EUR {{uurtarief}} per gewerkt uur, te
+vermeerderen met btw. De Managementvennootschap factureert maandelijks achteraf op basis van
+een urenregistratie, die de Vennootschap op verzoek inziet.
+<!-- /optie -->
+
+2.2 Redelijke, vooraf goedgekeurde onkosten worden op declaratiebasis vergoed. Facturen worden
+binnen 14 dagen betaald.
 
 2.3 Wijziging van de vergoeding vereist een besluit van de algemene vergadering
 (artikel 2:245 BW), tenzij de statuten anders bepalen.
@@ -80,9 +128,24 @@ te vermeerderen met btw, op basis van een maandelijkse factuur.
 opzegtermijn van {{opzegtermijn_maanden}} maanden. Partijen sluiten de opzeggingsbevoegdheid
 van artikel 7:408 lid 1 BW uit voor zover die afwijkt van deze termijn.
 
+> **Kies één:** Wat gebeurt er met de overeenkomst als de Managementvennootschap geen
+> bestuurder meer is?
+
+<!-- optie einde_bestuur=a -->
+**Optie A: Eindigt van rechtswege** *(aanbevolen voor de Vennootschap)*
+
 3.3 De overeenkomst eindigt van rechtswege, zonder opzegtermijn en zonder recht op
 schadevergoeding, op het moment dat de Managementvennootschap ophoudt bestuurder van de
-Vennootschap te zijn, tenzij partijen schriftelijk anders afspreken.
+Vennootschap te zijn.
+<!-- /optie -->
+
+<!-- optie einde_bestuur=b -->
+**Optie B: Loopt door tot einde opzegtermijn** *(beschermt de Manager)*
+
+3.3 Houdt de Managementvennootschap op bestuurder te zijn, dan geldt dat als opzegging door
+de Vennootschap tegen het einde van de opzegtermijn van artikel 3.2. Gedurende die termijn
+blijft de vergoeding verschuldigd, ook als de Vennootschap geen werkzaamheden meer verlangt.
+<!-- /optie -->
 
 3.4 Elke partij kan de overeenkomst met onmiddellijke ingang opzeggen bij faillissement,
 surseance of een dringende reden aan de zijde van de andere partij of de Manager.
@@ -92,8 +155,22 @@ surseance of een dringende reden aan de zijde van de andere partij of de Manager
 4.1 De Managementvennootschap mag de Manager alleen vervangen met voorafgaande schriftelijke
 toestemming van de algemene vergadering.
 
-4.2 Bij arbeidsongeschiktheid van de Manager langer dan drie maanden mag de Vennootschap de
-vergoeding opschorten voor de duur van de ongeschiktheid.
+> **Kies één:** Wat gebeurt er met de vergoeding bij langdurige arbeidsongeschiktheid?
+
+<!-- optie ziekte=a -->
+**Optie A: Opschorten na 3 maanden** *(aanbevolen voor een jonge BV)*
+
+4.2 Is de Manager langer dan drie maanden aaneengesloten arbeidsongeschikt, dan mag de
+Vennootschap de vergoeding opschorten voor de verdere duur van de ongeschiktheid.
+<!-- /optie -->
+
+<!-- optie ziekte=b -->
+**Optie B: Doorbetalen tot 12 maanden** *(alleen als de Vennootschap dit kan dragen)*
+
+4.2 Bij arbeidsongeschiktheid van de Manager betaalt de Vennootschap de vergoeding door
+gedurende ten hoogste twaalf maanden, verminderd met uitkeringen die de
+Managementvennootschap of de Manager ontvangt uit een arbeidsongeschiktheidsverzekering.
+<!-- /optie -->
 
 ## 5. Geheimhouding en intellectueel eigendom
 
@@ -127,10 +204,13 @@ Aldus overeengekomen en ondertekend te {{plaats}} op {{datum}}.
 
 ## Toelichting voor de gebruiker (verwijderen voor ondertekening)
 
+**Opties.** Bij elke keuze staat de aanbevolen optie. Laat per keuze één optie staan en
+verwijder de andere, inclusief de `<!-- optie -->`-markeringen.
+
 **Tegenstrijdig belang (art. 2:239 lid 6 BW).** De bestuurder sluit deze overeenkomst
 feitelijk met zichzelf. Hij neemt niet deel aan het bestuursbesluit. Is hij de enige
 bestuurder, dan beslist de RvC of, zonder RvC, de algemene vergadering. Gebruik daarvoor het
-template *aandeelhoudersbesluit-buiten-vergadering*.
+template *aandeelhoudersbesluit-buiten-vergadering*, optie C.
 
 **Wie tekent namens de Vennootschap?** De vertegenwoordigingsbevoegdheid van een bestuurder
 blijft ook bij tegenstrijdig belang bestaan (art. 2:240 BW). Laat bij voorkeur een andere
@@ -144,8 +224,10 @@ overeenkomst schriftelijk worden vastgelegd, anders kan zij worden vernietigd (a
 - [ ] AVA-besluit genomen dat deze overeenkomst en de vergoeding goedkeurt.
 - [ ] Statuten nagekeken op afwijkende regels voor tegenstrijdig belang en bezoldiging.
 - [ ] Gebruikelijkloonregeling (art. 12a Wet LB 1964): de Manager heeft als DGA meestal een
-      salaris nodig vanuit de holding. Laat dit fiscaal toetsen.
+      salaris nodig vanuit de holding. De vergoeding moet dat kunnen dragen. Laat dit fiscaal
+      toetsen.
 - [ ] Geen gezagsverhouding in de praktijk (Wet DBA). Een arbeidsovereenkomst kan ontstaan
       ongeacht wat partijen opschrijven.
 - [ ] Btw: de management-BV factureert in de regel met btw, tenzij er een fiscale eenheid is.
+- [ ] Optie B bij ziekte: is er een arbeidsongeschiktheidsverzekering afgesloten?
 - [ ] Concurrentiebeding nodig? Dan apart en redelijk afspreken, met duur en gebied.

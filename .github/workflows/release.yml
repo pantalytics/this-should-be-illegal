@@ -1,0 +1,28 @@
+name: Release
+
+# Tag vX.Y.Z to publish ready-to-use Word and Markdown files as release assets.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml==6.0.2
+      - run: sudo apt-get update && sudo apt-get install -y pandoc
+      - run: python scripts/validate.py
+      - run: python scripts/build.py
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*/*.docx dist/*/*.md \
+            --title "$GITHUB_REF_NAME" --generate-notes

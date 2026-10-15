@@ -3,7 +3,7 @@ title: Aandeelhoudersovereenkomst (BV, oprichters)
 jurisdiction: NL
 entity: bv
 language: nl
-version: 0.1.0
+version: 0.2.0
 status: draft
 reviewed_by: null
 last_checked: 2026-10-15
@@ -13,21 +13,74 @@ legal_basis:
   - BW 2:216
   - BW 2:238
   - BW 2:244
+  - BW 6:92
+  - BW 6:94
   - BW 6:248
+  - BW 7:900
 fields:
   vennootschap_naam: Statutaire naam van de BV
   vennootschap_kvk: KVK-nummer van de BV
-  partijen: Naam, rechtsvorm, KVK-nummer en vertegenwoordiger per aandeelhouder
-  aandelenverdeling: Tabel met aandeelhouder, aantal aandelen, soort en percentage
-  gekwalificeerde_meerderheid: Percentage voor gekwalificeerde besluiten, bijv. 75%
-  vesting_maanden: Totale vestingperiode in maanden, bijv. 48
-  cliff_maanden: Cliff in maanden, bijv. 12
-  drag_along_drempel: Percentage van de aandelen dat drag-along kan inroepen
-  non_compete_maanden: Duur van het concurrentiebeding na vertrek, in maanden
-  boete_bedrag: Boete per overtreding van geheimhouding of non-compete
-  forum: Bevoegde rechter of arbitrage-instituut
+  partijen:
+    label: Naam, rechtsvorm, KVK-nummer en vertegenwoordiger per aandeelhouder
+    suggestie: "Jansen Holding B.V., KVK 12345678, vertegenwoordigd door P. Jansen"
+  aandelenverdeling:
+    label: Tabel met aandeelhouder, aantal aandelen, soort en percentage
+    suggestie: "Jansen Holding B.V. | 500 gewone aandelen | 50%"
+  gekwalificeerde_meerderheid:
+    label: Meerderheid voor gekwalificeerde besluiten
+    suggestie: "75%"
+  vesting_maanden:
+    label: Totale vestingperiode in maanden
+    suggestie: "48"
+  cliff_maanden:
+    label: Cliff in maanden
+    suggestie: "12"
+  drag_along_drempel:
+    label: Percentage van de aandelen dat drag-along kan inroepen
+    suggestie: "75%"
+  non_compete_maanden:
+    label: Duur van het concurrentie- of relatiebeding na vertrek, in maanden
+    suggestie: "12"
+  boete_bedrag:
+    label: Boete per overtreding van artikel 6
+    suggestie: "10.000"
+  boete_per_dag:
+    label: Boete per dag dat de overtreding voortduurt
+    suggestie: "500"
   plaats: Plaats van ondertekening
   datum: Datum van ondertekening
+options:
+  vesting:
+    vraag: Moeten oprichters hun aandelen verdienen over tijd?
+    default: b
+    keuzes:
+      a: Geen vesting
+      b: Vesting met cliff
+  leaver:
+    vraag: Welke prijs krijgt een vertrekkende oprichter?
+    default: a
+    keuzes:
+      a: Good en bad leaver
+      b: Good, intermediate en bad leaver
+  non_compete:
+    vraag: Wat mag een vertrekkende aandeelhouder niet doen?
+    default: a
+    keuzes:
+      a: Concurrentie- en relatiebeding
+      b: Alleen relatiebeding
+  impasse:
+    vraag: Hoe doorbreek je een patstelling tussen aandeelhouders?
+    default: a
+    keuzes:
+      a: Mediation, daarna koop-of-verkoopregeling
+      b: Mediation, daarna bindend advies
+      c: Mediation, daarna gezamenlijke verkoop
+  forum:
+    vraag: Wie beslist bij een geschil?
+    default: a
+    keuzes:
+      a: Rechtbank
+      b: Arbitrage (NAI)
 ---
 
 # Aandeelhoudersovereenkomst {{vennootschap_naam}}
@@ -108,9 +161,27 @@ overeenkomst is toegetreden.
 
 ## 5. Vesting en leaver
 
+> **Kies één:** Moeten oprichters hun aandelen verdienen over tijd?
+
+<!-- optie vesting=a -->
+**Optie A: Geen vesting** *(alleen als alle oprichters al jaren samenwerken)*
+
+5.1 De aandelen van iedere Aandeelhouder zijn vanaf ondertekening volledig gevest. Artikel 5.2
+is alleen van toepassing bij een bad leaver.
+<!-- /optie -->
+
+<!-- optie vesting=b -->
+**Optie B: Vesting met cliff** *(aanbevolen: marktstandaard bij startende oprichters)*
+
 5.1 De aandelen van iedere oprichtende Aandeelhouder die tevens bestuurder of
 managementvennootschap is (een **Oprichter**), vesten over {{vesting_maanden}} maanden vanaf
 ondertekening, met een cliff van {{cliff_maanden}} maanden, daarna lineair per maand.
+<!-- /optie -->
+
+> **Kies één:** Welke prijs krijgt een vertrekkende oprichter?
+
+<!-- optie leaver=a -->
+**Optie A: Good en bad leaver** *(aanbevolen: eenvoudig)*
 
 5.2 Eindigt de betrokkenheid van een Oprichter, dan is hij verplicht zijn aandelen aan te
 bieden aan de overige Aandeelhouders of de Vennootschap:
@@ -119,9 +190,23 @@ a. **Good leaver** (overlijden, arbeidsongeschiktheid, ontslag zonder dringende 
    gevest deel tegen marktwaarde, ongevest deel tegen nominale waarde;
 b. **Bad leaver** (dringende reden, schending van deze overeenkomst, eigen vertrek binnen de
    cliff): alle aandelen tegen de laagste van nominale waarde en marktwaarde.
+<!-- /optie -->
+
+<!-- optie leaver=b -->
+**Optie B: Good, intermediate en bad leaver** *(gebruikelijk zodra er investeerders zijn)*
+
+5.2 Eindigt de betrokkenheid van een Oprichter, dan is hij verplicht zijn aandelen aan te
+bieden aan de overige Aandeelhouders of de Vennootschap:
+
+a. **Good leaver** (overlijden, arbeidsongeschiktheid): alle aandelen tegen marktwaarde;
+b. **Intermediate leaver** (eigen vertrek na de cliff, ontslag zonder dringende reden):
+   gevest deel tegen marktwaarde, ongevest deel tegen nominale waarde;
+c. **Bad leaver** (dringende reden, schending van deze overeenkomst, eigen vertrek binnen de
+   cliff): alle aandelen tegen de laagste van nominale waarde en marktwaarde.
+<!-- /optie -->
 
 5.3 Marktwaarde wordt bij gebrek aan overeenstemming vastgesteld door een onafhankelijke
-deskundige, aangewezen door de voorzitter van de NBA of het NIRV.
+registervaluator, aangewezen door het NIRV.
 
 5.4 Partijen nemen de aanbiedingsplicht bij leaver op in de statuten (artikel 2:192 lid 1
 sub c BW), zodat deze ook tegenover de Vennootschap afdwingbaar is.
@@ -130,20 +215,63 @@ sub c BW), zodat deze ook tegenover de Vennootschap afdwingbaar is.
 
 6.1 Iedere Aandeelhouder houdt vertrouwelijke informatie over de Vennootschap geheim.
 
+> **Kies één:** Wat mag een vertrekkende aandeelhouder niet doen?
+
+<!-- optie non_compete=a -->
+**Optie A: Concurrentie- en relatiebeding** *(aanbevolen voor oprichters)*
+
 6.2 Zolang een Aandeelhouder aandelen houdt en gedurende {{non_compete_maanden}} maanden
 daarna, is het hem niet toegestaan direct of indirect activiteiten te ontplooien die
-concurreren met de Vennootschap of medewerkers en klanten weg te halen.
+concurreren met de Vennootschap, of klanten en medewerkers van de Vennootschap te benaderen
+om hun relatie met de Vennootschap te beëindigen of te beperken.
+<!-- /optie -->
+
+<!-- optie non_compete=b -->
+**Optie B: Alleen relatiebeding** *(voor kleine of passieve aandeelhouders)*
+
+6.2 Zolang een Aandeelhouder aandelen houdt en gedurende {{non_compete_maanden}} maanden
+daarna, is het hem niet toegestaan klanten en medewerkers van de Vennootschap te benaderen om
+hun relatie met de Vennootschap te beëindigen of te beperken.
+<!-- /optie -->
 
 6.3 Bij overtreding van dit artikel verbeurt de overtreder een direct opeisbare boete van
-EUR {{boete_bedrag}} per overtreding, onverminderd het recht op volledige
-schadevergoeding.
+EUR {{boete_bedrag}} per overtreding en EUR {{boete_per_dag}} voor elke dag dat de overtreding
+voortduurt, onverminderd het recht op volledige schadevergoeding. Partijen sluiten
+artikel 6:92 lid 2 BW uit.
 
 ## 7. Impasse
 
-Kunnen de Aandeelhouders over een gekwalificeerd besluit twee keer achter elkaar geen besluit
-nemen, dan schakelen zij binnen 30 dagen een mediator in. Leidt dat niet binnen 60 dagen tot
-een besluit, dan kan iedere Aandeelhouder de andere(n) een bod doen op hun aandelen,
-waarna de ontvanger moet kiezen tussen verkopen of kopen tegen dezelfde prijs per aandeel.
+7.1 Kunnen de Aandeelhouders over een gekwalificeerd besluit twee keer achter elkaar geen
+besluit nemen (een **Impasse**), dan schakelen zij binnen 30 dagen een mediator in.
+
+> **Kies één:** Hoe doorbreek je een patstelling tussen aandeelhouders?
+
+<!-- optie impasse=a -->
+**Optie A: Koop-of-verkoopregeling** *(aanbevolen bij twee gelijke oprichters)*
+
+7.2 Is de Impasse 60 dagen na aanvang van de mediation niet opgelost, dan kan iedere
+Aandeelhouder de andere(n) schriftelijk een prijs per aandeel noemen. De ontvanger kiest
+binnen 30 dagen of hij zijn aandelen tegen die prijs verkoopt, of de aandelen van de
+bieder tegen die prijs koopt. Kiest hij niet, dan geldt hij als verkoper.
+<!-- /optie -->
+
+<!-- optie impasse=b -->
+**Optie B: Bindend advies** *(behoud van de samenwerking, inhoudelijke geschillen)*
+
+7.2 Is de Impasse 60 dagen na aanvang van de mediation niet opgelost, dan legt iedere
+Aandeelhouder het geschil voor aan een door partijen gezamenlijk, of bij gebrek aan
+overeenstemming door de mediator, aangewezen onafhankelijke deskundige. Diens beslissing geldt
+als bindend advies (artikel 7:900 BW) en de Aandeelhouders stemmen daarnaar.
+<!-- /optie -->
+
+<!-- optie impasse=c -->
+**Optie C: Gezamenlijke verkoop** *(als niemand de ander wil of kan uitkopen)*
+
+7.2 Is de Impasse 60 dagen na aanvang van de mediation niet opgelost, dan zetten de
+Aandeelhouders gezamenlijk een verkoopproces op voor alle aandelen, begeleid door een door hen
+aangewezen corporate-financeadviseur. Iedere Aandeelhouder werkt mee aan verkoop aan de
+hoogste bonafide bieder; artikel 4.4 is van overeenkomstige toepassing.
+<!-- /optie -->
 
 ## 8. Duur
 
@@ -157,8 +285,24 @@ een Aandeelhouder die geen aandelen meer houdt, behalve voor de artikelen 6 en 9
 9.2 Partijen sluiten ontbinding van deze overeenkomst uit, behoudens beëindiging op grond van
 artikel 8.
 
-9.3 Op deze overeenkomst is Nederlands recht van toepassing. Geschillen worden beslecht door
-{{forum}}.
+9.3 Op deze overeenkomst is Nederlands recht van toepassing.
+
+> **Kies één:** Wie beslist bij een geschil?
+
+<!-- optie forum=a -->
+**Optie A: Rechtbank** *(aanbevolen: goedkoper, hoger beroep mogelijk)*
+
+9.4 Geschillen worden voorgelegd aan de bevoegde rechter in het arrondissement waar de
+Vennootschap statutair is gevestigd.
+<!-- /optie -->
+
+<!-- optie forum=b -->
+**Optie B: Arbitrage (NAI)** *(vertrouwelijk, sneller, duurder)*
+
+9.4 Geschillen worden beslecht door arbitrage overeenkomstig het Arbitragereglement van het
+Nederlands Arbitrage Instituut. Het scheidsgerecht bestaat uit één arbiter, de plaats van
+arbitrage is Amsterdam en de procedure wordt in het Nederlands gevoerd.
+<!-- /optie -->
 
 Aldus overeengekomen en ondertekend te {{plaats}} op {{datum}}.
 
@@ -172,13 +316,16 @@ Aldus overeengekomen en ondertekend te {{plaats}} op {{datum}}.
 
 ## Toelichting voor de gebruiker (verwijderen voor ondertekening)
 
+**Opties.** Bij elke keuze staat de aanbevolen optie. Laat per keuze één optie staan en
+verwijder de andere, inclusief de `<!-- optie -->`-markeringen.
+
 **Statuten eerst.** Een aandeelhoudersovereenkomst bindt alleen de ondertekenaars. Aanbiedings-
 plicht, blokkeringsregeling en leaver-verplichtingen horen ook in de statuten, anders kan een
 overdracht in strijd met de SHA toch geldig zijn. Laat de notaris de statuten hierop afstemmen.
 
 **Redelijkheid en billijkheid (art. 6:248 BW).** Een rechter kan strenge bepalingen, zoals een
-bad-leaverprijs of een lange non-compete, matigen of buiten toepassing laten. Houd ze
-proportioneel.
+bad-leaverprijs, een lange non-compete of een hoge boete (art. 6:94 BW), matigen of buiten
+toepassing laten. Houd ze proportioneel.
 
 **Checklist**
 
@@ -187,5 +334,5 @@ proportioneel.
       vetorecht is een bewuste keuze.
 - [ ] Vesting- en leaverregeling fiscaal getoetst (aanmerkelijk belang, lucratief belang).
 - [ ] Holdings van oprichters zijn partij, en de oprichter persoonlijk voor artikel 6.
-- [ ] Bij investeerders: gebruik een investeerdersmodel (zie SOURCES.md) in plaats van deze
-      oprichters-SHA.
+- [ ] Komen er investeerders bij, dan zijn ook voorkeursaandelen, liquidatievoorkeur en
+      anti-verwatering nodig. Die zitten niet in deze oprichters-SHA.
