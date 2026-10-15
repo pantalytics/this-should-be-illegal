@@ -1,7 +1,16 @@
 # this should be illegal
 
-Open legal templates and AI skills for entrepreneurs. Plain Markdown, written from the
-statute, checked against the current law text. Netherlands first, then Europe.
+Free, good legal documents for every entrepreneur in Europe, with AI skills that check them
+against the current law. Netherlands first, then country by country.
+
+- **Made for AI.** Plain Markdown with structured frontmatter. Any AI assistant can fill in,
+  check and convert the templates.
+- **Open source only.** Content CC BY 4.0, code MIT, nothing else. CI enforces it.
+- **No gates.** Only open sources: no accounts, API keys or download forms.
+- **Written from the statute,** never copied from commercial models.
+
+Purpose and principles: [DECISIONS.md](DECISIONS.md). How to help:
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 > **Not legal advice.** Templates are drafts until a lawyer has reviewed them. See
 > [DISCLAIMER.md](DISCLAIMER.md).
@@ -41,9 +50,6 @@ Open, free, no account or key:
   legislation as Markdown, synced daily with wetten.overheid.nl (CC0)
 - **EU law:** [eurlex-mcp-server](https://github.com/Honeyfield-Org/eurlex-mcp-server) (MIT)
 - **NL case law:** [rechtspraak-mcp](https://github.com/prudai/rechtspraak-mcp) (MIT)
-
-The choices behind this repo are in [DECISIONS.md](DECISIONS.md). Want to contribute? See
-[CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
