@@ -2,11 +2,11 @@
   "mcpServers": {
     "rechtspraak": {
       "command": "npx",
-      "args": ["-y", "rechtspraak-mcp"]
+      "args": ["-y", "rechtspraak-mcp@0.1.1"]
     },
     "eurlex": {
       "command": "npx",
-      "args": ["-y", "eurlex-mcp-server"]
+      "args": ["-y", "eurlex-mcp-server@2.4.3"]
     }
   }
 }
