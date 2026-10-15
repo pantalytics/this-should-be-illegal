@@ -53,6 +53,17 @@ language, and copy the frontmatter from an existing template.
 - End with "Toelichting voor de gebruiker": when to use it, and a checklist.
 - New templates start as `status: draft`.
 
+## When the law changes
+
+The weekly check opens an issue naming the template and article. To resolve it:
+
+1. Read the new article text (skill `lookup-law`, or the link under "Wettelijke grondslag").
+2. Adjust the template if needed and bump `version`.
+3. Set `last_checked` to today, also when nothing had to change. That closes the loop.
+4. A template marked `reviewed` goes back to `draft` if the change affects its content.
+
+A law the check does not know yet? Add it to `LAWS` in `scripts/check_law.py`.
+
 ## Reviewing a template (lawyers)
 
 Check it against current law, then open a PR that sets `status: reviewed`,
@@ -63,5 +74,6 @@ Check it against current law, then open a PR that sets `status: reviewed`,
 ```bash
 pip install pyyaml
 python scripts/validate.py
+python scripts/check_law.py   # online, compares cited articles
 npx markdownlint-cli2 "**/*.md"
 ```

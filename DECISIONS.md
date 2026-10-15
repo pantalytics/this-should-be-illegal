@@ -65,4 +65,16 @@ marked `draft`, and offers it back as a contribution. The library grows from rea
 
 ### 7. Honest status
 
-Every template is `draft` until a named lawyer has reviewed it. Nothing here is legal advice.
+The maintainer is not a lawyer and much of this repo was written with AI. Every template is
+`draft` until a named lawyer has reviewed it. Nothing here is legal advice. See
+[DISCLAIMER.md](DISCLAIMER.md).
+
+### 8. Law changes are caught three ways
+
+1. **Every use.** The skills read the current article text before they rely on it, and flag
+   any difference with the template.
+2. **Every week.** CI compares each cited article with its text on the template's
+   `last_checked` date, using the history of wetgeving-nl, and opens an issue when one changed.
+3. **Every year.** A template whose `last_checked` is more than a year old fails CI, so it
+   gets a full re-read even if no cited article changed. New laws that matter but are not yet
+   cited are only caught this way.

@@ -63,6 +63,10 @@ options:
       b: Doorbetalen tot 12 maanden
 ---
 
+> **Let op:** concept, opgesteld door een niet-jurist en grotendeels met AI geschreven. Geen
+> juridisch advies. Laat dit document toetsen door een advocaat of notaris voordat je het
+> gebruikt. Zie [DISCLAIMER.md](../../../../DISCLAIMER.md). *Verwijder dit blok voor ondertekening.*
+
 # Managementovereenkomst
 
 **Partijen**
