@@ -45,12 +45,18 @@ the recommended one marked, links to the law, and a checklist. Need Word? Ask yo
 
 **Claude app (claude.ai, Desktop, Cowork)**
 
+No install button exists for the app yet, so add it by hand:
+
 1. Open **Customize** and choose **Add marketplace**.
 2. Choose **Add from a repository** and enter `pantalytics/this-should-be-illegal`.
 3. Install the plugin **legal-nl** from that marketplace.
 4. Try: *"Stel een rekening-courantovereenkomst op tussen mijn holding en mijn BV."*
 
 **Claude Code**
+
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_legal--nl-0098FF?logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect?url=vscode%3A%2F%2Fanthropic.claude-code%2Finstall-plugin%3Fplugin%3Dlegal-nl%26marketplace%3Dpantalytics%2Fthis-should-be-illegal)
+
+Or in the terminal:
 
 ```bash
 /plugin marketplace add pantalytics/this-should-be-illegal
