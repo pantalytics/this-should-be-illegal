@@ -13,6 +13,8 @@ statute, checked against the current law text. Netherlands first, then Europe.
 | 🇳🇱 | [Aandeelhoudersovereenkomst](plugins/legal-nl/templates/bv/aandeelhoudersovereenkomst.md) | draft |
 | 🇳🇱 | [Managementovereenkomst](plugins/legal-nl/templates/bv/managementovereenkomst.md) | draft |
 | 🇳🇱 | [Aandeelhoudersbesluit buiten vergadering](plugins/legal-nl/templates/bv/aandeelhoudersbesluit-buiten-vergadering.md) | draft |
+| 🇳🇱 | [Rekening-courantovereenkomst](plugins/legal-nl/templates/bv/rekening-courantovereenkomst.md) | draft |
+| 🇳🇱 | [Geldleningsovereenkomst](plugins/legal-nl/templates/bv/geldleningsovereenkomst.md) | draft |
 
 Full clause text, suggested values for every open field, common options written out with
 the recommended one marked, links to the law, and a checklist. Need Word? Ask your AI.
