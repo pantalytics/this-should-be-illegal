@@ -1,13 +1,29 @@
+<div align="center">
+
 # this should be illegal
+
+**Free legal documents for every entrepreneur in Europe.**
+**Open source, written from the law, checked by AI.**
+
+A law firm charges hundreds of euros for a shareholders' agreement.
+The law it is built on is free. That should be illegal.
+
+[![Templates](https://img.shields.io/badge/templates-5-1f6feb)](#templates)
+[![Lawyer reviewed](https://img.shields.io/badge/lawyer_reviewed-0%2F5-d1242f)](https://github.com/pantalytics/this-should-be-illegal/labels/lawyer-review)
+[![License](https://img.shields.io/badge/license-CC_BY_4.0-2da44e)](LICENSES/CC-BY-4.0.txt)
+[![Stars](https://img.shields.io/github/stars/pantalytics/this-should-be-illegal?style=flat&color=e3b341)](https://github.com/pantalytics/this-should-be-illegal/stargazers)
+
+**[Use it in Claude](#add-it-to-claude)** ·
+**[Help build it](#help-build-it)** ·
+**[Star it](https://github.com/pantalytics/this-should-be-illegal/stargazers)**
+
+</div>
 
 > [!CAUTION]
 > **I am not a lawyer, and large parts of this repo were written with AI.**
 > Nothing here is legal advice. Every template is a draft until a lawyer has reviewed it,
 > and none have been reviewed yet. Have a lawyer or notary check any document before you
 > sign it. See [DISCLAIMER.md](DISCLAIMER.md).
-
-Free, good legal documents for every entrepreneur in Europe, with AI skills that check them
-against the current law. Netherlands first, then country by country.
 
 - **Made for AI.** Plain Markdown with structured frontmatter. Any AI assistant can fill in,
   check and convert the templates.
@@ -16,8 +32,23 @@ against the current law. Netherlands first, then country by country.
 - **Written from the statute,** never copied from commercial models.
 - **Kept current.** A weekly check flags templates whose cited articles changed.
 
-Purpose and principles: [DECISIONS.md](DECISIONS.md). How to help:
-[CONTRIBUTING.md](CONTRIBUTING.md).
+Netherlands first, then country by country. Purpose and principles:
+[DECISIONS.md](DECISIONS.md).
+
+## Help build it
+
+Five templates is a start. Every one you add or review makes it useful for the next
+entrepreneur.
+
+| You are | Do this | Takes |
+| ------- | ------- | ----- |
+| **Lawyer or notary** | [Review one template](https://github.com/pantalytics/this-should-be-illegal/labels/lawyer-review) and get credited by name in it | 1 hour |
+| **Entrepreneur** | [Ask for the document you need](https://github.com/pantalytics/this-should-be-illegal/issues/new?template=template-request.yml) | 2 minutes |
+| **Anyone with an AI** | [Pick a missing template](https://github.com/pantalytics/this-should-be-illegal/labels/good%20first%20issue), let `draft-document` write it from the law, open a PR | 30 minutes |
+| **Everyone** | [Star the repo](https://github.com/pantalytics/this-should-be-illegal/stargazers) so others find it | 1 second |
+
+Rules for contributions: [CONTRIBUTING.md](CONTRIBUTING.md). Short version: write from the
+statute, never copy a commercial model.
 
 ## Templates
 
