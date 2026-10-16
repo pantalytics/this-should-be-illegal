@@ -31,6 +31,7 @@ integrations we have to maintain. Fewer, better documents beat a large catalogue
 
 Everything is Markdown with YAML frontmatter, so any AI assistant can read, fill in and
 convert it. No Word, PDF, images or other binary files. Need a `.docx`? Ask your AI.
+One exception: the README's banner and video live in `assets/`, and nothing else does.
 
 Templates are structured so a machine can work with them:
 
