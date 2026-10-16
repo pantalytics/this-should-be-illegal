@@ -16,7 +16,7 @@ locked behind lawyers, API keys and subscriptions. That should be illegal.
 [![License](https://img.shields.io/badge/license-CC_BY_4.0-2da44e)](LICENSES/CC-BY-4.0.txt)
 [![Stars](https://img.shields.io/github/stars/pantalytics/this-should-be-illegal?style=flat&color=e3b341)](https://github.com/pantalytics/this-should-be-illegal/stargazers)
 
-**[Watch the 8-second film](assets/launch.mp4)** ·
+**[Watch the 10-second film](assets/launch.mp4)** ·
 **[Use it in Claude](#add-it-to-claude)** ·
 **[Help build it](#help-build-it)** ·
 **[Star it](https://github.com/pantalytics/this-should-be-illegal/stargazers)**
