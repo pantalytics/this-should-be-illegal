@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="assets/launch.mp4"><img src="assets/banner.jpg" width="100%"
-  alt="Paper folding screen: a tangle of ink lines, one breaks free into a purple bloom"></a>
+  alt="Folding screen: a rabbit buried in contracts gets a brush from a frog and draws its way out"></a>
 
 # this should be illegal
 
