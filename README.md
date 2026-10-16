@@ -2,11 +2,11 @@
 
 # this should be illegal
 
-**Free legal documents for every entrepreneur in Europe.**
-**Open source, written from the law, checked by AI.**
+**Everything a founder needs to run a company in Europe. Free, open, and readable by
+people and AI alike.**
 
-A law firm charges hundreds of euros for a shareholders' agreement.
-The law it is built on is free. That should be illegal.
+The rules for running a company are public. Yet every country has its own, and the help is
+locked behind lawyers, API keys and subscriptions. That should be illegal.
 
 [![Templates](https://img.shields.io/badge/templates-5-1f6feb)](#templates)
 [![Lawyer reviewed](https://img.shields.io/badge/lawyer_reviewed-0%2F5-d1242f)](https://github.com/pantalytics/this-should-be-illegal/labels/lawyer-review)
@@ -25,20 +25,27 @@ The law it is built on is free. That should be illegal.
 > and none have been reviewed yet. Have a lawyer or notary check any document before you
 > sign it. See [DISCLAIMER.md](DISCLAIMER.md).
 
-- **Made for AI.** Plain Markdown with structured frontmatter. Any AI assistant can fill in,
-  check and convert the templates.
+If every founder adds a little, every founder benefits. This repo collects what running a
+company actually takes, as plain Markdown:
+
+- **Templates** for the documents you need, written from the statute.
+- **Skills** that let any AI fill them in, check them and look up the current law.
+- **Checks** that flag when the law changed. Next: telling you when AI is enough and when
+  you need a lawyer, notary or tax advisor.
+
+Legal first (shareholders, management, loans), then tax, accounting, notarial deeds and the
+Chamber of Commerce. Netherlands first, then country by country.
+
 - **Open source only.** Content CC BY 4.0, code MIT, nothing else. CI enforces it.
 - **No gates.** Only open sources: no accounts, API keys or download forms.
-- **Written from the statute,** never copied from commercial models.
 - **Kept current.** A weekly check flags templates whose cited articles changed.
 
-Netherlands first, then country by country. Purpose and principles:
-[DECISIONS.md](DECISIONS.md).
+Purpose and principles: [DECISIONS.md](DECISIONS.md).
 
 ## Help build it
 
 Five templates is a start. Every one you add or review makes it useful for the next
-entrepreneur.
+founder.
 
 | You are | Do this | Takes |
 | ------- | ------- | ----- |

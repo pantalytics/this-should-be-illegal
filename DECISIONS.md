@@ -2,8 +2,18 @@
 
 ## Purpose
 
-Give every entrepreneur in Europe free, good legal documents and AI skills that check them
-against the current law. Start with what a Dutch BV needs, then add countries one by one.
+Give every founder in Europe what it takes to run a company well: legal documents first,
+then tax, accounting, notarial deeds and the Chamber of Commerce. Free, in a format both
+people and AI can work with, with skills that check it against the current law.
+
+Running a company is largely standard, but the rules differ per country and the help sits
+behind lawyers, API keys and subscriptions. AI can make this simple once the knowledge is
+open. If every founder contributes a little, everyone benefits.
+
+AI does most of the work; experts step in where it matters. The repo should tell you when AI
+is enough and when you need a lawyer, notary or tax advisor.
+
+Start with what a Dutch BV needs, then add countries one by one.
 
 This repo is a library, not a product: plain text that people and AI assistants can read,
 fill in, check and improve.
