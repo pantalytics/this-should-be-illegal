@@ -141,6 +141,9 @@ def check_marketplace() -> None:
 
 ALLOWED_LICENSES = {"MIT", "CC-BY-4.0"}
 ALLOWED_SUFFIXES = {".md", ".json", ".yml", ".yaml", ".toml", ".py", ".txt", ""}
+# Launch visuals for the README only, see DECISIONS.md principle 2.
+MEDIA_DIR = "assets"
+MEDIA_SUFFIXES = {".jpg", ".png", ".mp4"}
 SPDX = re.compile(r"SPDX-License-Identifier\s*=?\s*:?\s*\"?([A-Za-z0-9.+-]+)")
 
 
@@ -156,6 +159,8 @@ def check_repo_files() -> None:
     for path in sorted(ROOT / f for f in tracked):
         rel = path.relative_to(ROOT)
         if not path.is_file() or rel.parts[0] == "LICENSES":
+            continue
+        if rel.parts[0] == MEDIA_DIR and path.suffix.lower() in MEDIA_SUFFIXES:
             continue
         if path.suffix.lower() not in ALLOWED_SUFFIXES:
             error(path, f"file type `{path.suffix}` not allowed; Markdown and plain text only")
